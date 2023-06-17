@@ -1,5 +1,5 @@
 import React from "react";
-import PortfolioLink from "../PortfolioLink/PortfolioLink";
+import PortfolioLink from "../../PortfolioLink/PortfolioLink";
 
 function Portfolio() {
   return (

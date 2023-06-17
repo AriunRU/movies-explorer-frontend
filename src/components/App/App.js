@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
-import Main from "../pages/Main/Main";
+import Navigation from "../pages/Navigation/Navigation";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Profile from "../pages/Profile/Profile";
@@ -24,7 +24,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Main loggedIn={false} goToLogin={goToLogin} margin={true}/>} />
+        <Route path="/" element={<Navigation loggedIn={false} goToLogin={goToLogin} margin={true}/>} />
         <Route path="/signin" element={<Login />} />
         <Route path="/signup" element={<Register />} />
         <Route

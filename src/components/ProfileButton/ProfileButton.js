@@ -1,5 +1,5 @@
 import React from "react";
-import profileLogo from "../../images/icon__COLOR_icon-main.svg";
+import profileLogo from "../../images/icon-main.svg";
 
 function ProfileButton(props) {
   const { goToProfile } = props;

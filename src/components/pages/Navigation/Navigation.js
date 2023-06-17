@@ -1,9 +1,9 @@
 import React from "react";
 import Header from "../../Header/HeaderMain/HeaderMain";
-import MainContent from "../../MainContent/MainContent";
+import Main from "../../Main/Main";
 import Footer from "../../Footer/Footer";
 
-function Main(props) {
+function Navigation(props) {
   const { loggedIn, isMenuOpen, handleMenuOpen, goToProfile, goToLogin, margin } =
     props;
   return (
@@ -15,10 +15,10 @@ function Main(props) {
         goToProfile={goToProfile}
         goToLogin={goToLogin}
         margin={margin}/>
-      <MainContent />
+      <Main/>
       <Footer />
     </>
   );
 }
 
-export default Main;
+export default Navigation;

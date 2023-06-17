@@ -1,9 +1,9 @@
-.content {
+.main {
   margin: 38px auto 90px;
 }
 
 @media screen and (max-width: 770px) {
-  .content {
+  .main {
     margin: 31px auto 90px;
   }
 }

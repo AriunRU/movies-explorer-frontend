@@ -1,7 +1,6 @@
 @import url(./vendor/normalize.css);
 @import url(./vendor/fonts/fonts.css);
 @import url(./components/App/App.css);
-@import url(./components/Movies/PreLoader/Preloader.css);
 @import url(./components/pages/Navigation/Navigation.css);
 @import url(./components/pages/Login/Login.css);
 @import url(./components/pages/Register/Register.css);
@@ -15,6 +14,7 @@
 @import url(./components/Header/HeaderNavLogout/HeaderNavLogout.css);
 @import url(./components/Header/HeaderNavLinks/HeaderNavLinks.css);
 @import url(./components/Footer/Footer.css);
+@import url(./components/Main/Main.css);
 @import url(./components/Main/Promo/Promo.css);
 @import url(./components/Main/NavTab/NavTab.css);
 @import url(./components/Main/AboutProject/AboutProject.css);
@@ -23,9 +23,9 @@
 @import url(./components/Main/Portfolio/Portfolio.css);
 @import url(./components/Title/Title.css);
 @import url(./components/PortfolioLink/PortfolioLink.css);
-@import url(./components/Main/Main.css);
+@import url(./components/Movies/PreLoader/Preloader.css);
 @import url(./components/Movies/SearchForm/SearchForm.css);
-@import url(./components/FilterCheckbox/FilterCheckbox.css);
+@import url(./components/Movies/FilterCheckbox/FilterCheckbox.css);
 @import url(./components/Movies/MoviesCardList/MoviesCardList.css);
 @import url(./components/Movies/MoviesCard/MoviesCard.css);
 @import url(./components/Buttons/ButtonSave/ButtonSave.css);

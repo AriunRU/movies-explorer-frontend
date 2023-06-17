@@ -27,7 +27,7 @@ function Profile(props) {
         margin={margin}
       />
       <main className="profile">
-        <h1 className="profile__title">Привет, Виталий!</h1>
+        <h1 className="profile__title">Привет, Кирилл!</h1>
         <form className="profile__form">
           <label htmlFor="profile-name" className="profile__label">
             <span className="profile__container">
@@ -37,7 +37,7 @@ function Profile(props) {
                 id="profile-name"
                 name="name"
                 type="text"
-                defaultValue="Виталий"
+                defaultValue="Кирилл"
                 required
               />
             </span>

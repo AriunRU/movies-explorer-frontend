@@ -1,5 +1,5 @@
 import React from "react";
-import arrow from "../../images/text__COLOR_font-main.svg";
+import arrow from "../../images/text-main.svg";
 
 function PortfolioLink(props) {
   return (

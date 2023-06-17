@@ -1,8 +1,8 @@
 import React from "react";
-import ButtonSave from "../Buttons/ButtonSave/ButtonSave";
-import ButtonIsLiked from "../Buttons/ButtonIsLiked/ButtonIsLiked";
-import ButtonDelete from "../Buttons/ButtonDelete/ButtonDelete";
-import image from "../../../src/images/pic__COLOR_pic.jpg";
+import ButtonSave from "../../Buttons/ButtonSave/ButtonSave";
+import ButtonIsLiked from "../../Buttons/ButtonIsLiked/ButtonIsLiked";
+import ButtonDelete from "../../Buttons/ButtonDelete/ButtonDelete";
+import image from "../../../../src/images/movie-pic.jpg";
 
 function MoviesCard(props) {
   const { trailerLink, page, isLikedProps } = props;

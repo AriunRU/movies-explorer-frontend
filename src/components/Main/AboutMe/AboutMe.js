@@ -1,6 +1,6 @@
 import React from "react";
-import Title from "../Title/Title";
-import photo from "../../images/photo.jpg";
+import Title from "../../Title/Title";
+import photo from "../../../images/me-photo.jpg";
 
 function AboutMe() {
   return (

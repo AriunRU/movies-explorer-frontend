@@ -1,2 +1,2 @@
 # movies-explorer-frontend
-diplom on YA-Praktikum
+diplomFront on YA-Praktikum

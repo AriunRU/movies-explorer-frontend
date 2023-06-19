@@ -1,73 +1,68 @@
 import React from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
-import Navigation from "../pages/Navigation/Navigation";
-import Login from "../pages/Login/Login";
-import Register from "../pages/Register/Register";
-import Profile from "../pages/Profile/Profile";
-import Movies from "../pages/Movies/Movies";
-import SavedMovies from "../pages/SavedMovies/SavedMovies";
-import PageNotFound from "../pages/PageNotFound/PageNotFound";
+import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Header from "../Header/Header";
+import Main from "../Main/Main";
+import Movies from "../Movies/Movies";
+import SavedMovies from "../SavedMovies/SavedMovies";
+import Profile from "../Profile/Profile";
+import Footer from "../Footer/Footer";
+import Login from "../Login/Login";
+import Register from "../Register/Register";
+import PageNotFound from "../PageNotFound/PageNotFound";
 
 function App() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  function handleMenuOpen() {
-    setIsMenuOpen(!isMenuOpen);
+  const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
+
+  function closeBurgerMenu() {
+    setIsBurgerMenuOpen(false);
   }
 
-  const navigate = useNavigate();
-  function goToProfile() {
-    navigate("/profile");
+  function handleBurgerClick() {
+    if (isBurgerMenuOpen) {
+      setIsBurgerMenuOpen(false);
+    } else setIsBurgerMenuOpen(true);
   }
-  function goToLogin() {
-    navigate("/signin");
-  }
+
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Navigation loggedIn={false} goToLogin={goToLogin} margin={true}/>} />
-        <Route path="/signin" element={<Login />} />
-        <Route path="/signup" element={<Register />} />
-        <Route
-          path="/profile"
-          element={
-            <Profile
-              loggedIn={true}
-              isMenuOpen={isMenuOpen}
-              handleMenuOpen={handleMenuOpen}
-              goToProfile={goToProfile}
-              goToLogin={goToLogin}
-              margin={false}
-            />
-          }
+      <div className="app">
+        <Header
+          handleBurgerClick={handleBurgerClick}
+          isBurgerOpen={isBurgerMenuOpen}
+          onClose={closeBurgerMenu}
         />
-        <Route
-          path="/movies"
-          element={
-            <Movies
-              loggedIn={true}
-              isMenuOpen={isMenuOpen}
-              handleMenuOpen={handleMenuOpen}
-              goToProfile={goToProfile}
-              goToLogin={goToLogin}
-              margin={false}
-            />
-          }
-        />
-        <Route
-          path="/saved-movies"
-          element={
-            <SavedMovies
-              loggedIn={true}
-              isMenuOpen={isMenuOpen}
-              handleMenuOpen={handleMenuOpen}
-              goToProfile={goToProfile}
-              goToLogin={goToLogin}
-              margin={false}
-            />
-          }
-        />
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
+        <main className="app__main">
+        <Routes>
+          <Route
+            path="/"
+            element={<Main />}
+          />
+          <Route
+            path="/movies"
+            element={<Movies  />}
+          />
+          <Route
+            path="/saved-movies"
+            element={<SavedMovies />}
+          />
+          <Route
+            path="/profile"
+            element={<Profile />}
+          />
+          <Route
+            path="/signup"
+            element={<Register />}
+          />
+          <Route
+            path="/signin"
+            element={<Login />}
+          />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+        </main>
+        <Footer />
+      </div>
     </>
   );
 }

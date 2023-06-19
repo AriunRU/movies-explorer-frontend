@@ -1,27 +1,27 @@
 import React from "react";
-import PortfolioLink from "../../PortfolioLink/PortfolioLink";
 
 function Portfolio() {
   return (
     <section className="portfolio">
-      <h2 className="portfolio__title">Портфолио</h2>
-      <ul className="portfolio__list">
-        <li className="portfolio__item">
-          <PortfolioLink
-            text="Статичный сайт"
-            link="https://github.com/AriunRU/how-to-learn"/>
-        </li>
-        <li className="portfolio__item">
-          <PortfolioLink
-            text="Адаптивный сайт"
-            link="https://ariunru.github.io/russian-travel/"/>
-        </li>
-        <li className="portfolio__item">
-          <PortfolioLink
-            text="Одностраничное приложение"
-            link="https://github.com/AriunRU/react-mesto-api-full-gha"/>
-        </li>
-      </ul>
+      <h2 className="portfolio__title"> Портфолио</h2>
+      <a href="https://github.com/AriunRU/how-to-learn" className="portfolio__link" target="_blank" rel="noreferrer">
+        <div className="portfolio__container">
+          <h2 className="portfolio__text">Статичный сайт</h2>
+          <h2 className="portfolio__arrow">↗</h2>
+        </div>
+      </a>
+      <a href="https://AriunRU.github.io/russian-travel" className="portfolio__link" target="_blank" rel="noreferrer">
+        <div className="portfolio__container">
+          <h2 className="portfolio__text">Адаптивный сайт</h2>
+          <h2 className="portfolio__arrow">↗</h2>
+        </div>
+      </a>
+      <a href="https://ariun.nomoredomains.monster" className="portfolio__link" target="_blank" rel="noreferrer">
+        <div className="portfolio__container portfolio__last">
+          <h2 className="portfolio__text">Одностраничное приложение</h2>
+          <h2 className="portfolio__arrow">↗</h2>
+        </div>
+      </a>
     </section>
   );
 }

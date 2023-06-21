@@ -14,7 +14,7 @@ function Profile() {
               id="name-field"
               className="profile__field"
               minLength="2"
-              maxLength="40"
+              maxLength="30"
               required
               name="name"
               defaultValue="Виталий"
@@ -28,7 +28,7 @@ function Profile() {
               id="email-field"
               className="profile__field profile__field-last"
               minLength="2"
-              maxLength="50"
+              maxLength="40"
               required
               name="email"
               defaultValue="pochta@yandex.ru"

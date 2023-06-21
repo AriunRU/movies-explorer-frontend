@@ -15,7 +15,7 @@ function Register() {
             id="name-field"
             className="register__field"
             minLength="2"
-            maxLength="40"
+            maxLength="30"
             required
             name="name"
           />
@@ -26,7 +26,7 @@ function Register() {
             id="email-field"
             className="register__field"
             minLength="2"
-            maxLength="50"
+            maxLength="40"
             required
             name="email"/>
           <span className="email-field-error register__span"></span>
@@ -36,7 +36,7 @@ function Register() {
             id="password-field"
             className="register__field password-register__field"
             minLength="2"
-            maxLength="40"
+            maxLength="30"
             required
             name="password"
           />

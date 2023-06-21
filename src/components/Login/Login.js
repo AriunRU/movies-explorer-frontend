@@ -15,7 +15,7 @@ function Login() {
             id="email-field"
             className="login__field"
             minLength="2"
-            maxLength="50"
+            maxLength="40"
             required
             name="email"/>
           <span className="name-field-error login__span"></span>
@@ -25,7 +25,7 @@ function Login() {
             id="password-field"
             className="login__field"
             minLength="2"
-            maxLength="40"
+            maxLength="30"
             required
             name="password"
           />

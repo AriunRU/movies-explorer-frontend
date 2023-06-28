@@ -1,11 +1,24 @@
 import React from "react";
 import logo from "../../images/logo.svg";
 import { Link } from "react-router-dom";
+import useForm from "../../hooks/useForm";
 
-function Register() {
+function Register(props) {
+  const {formValue, error, handleChange, resetValidation} = useForm();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    props.handleRegister(formValue);
+    resetValidation();
+  }
+
   return (
     <section className="register">
-      <form name="register__form" className="register__form">
+      <form
+        name="register__form"
+        className="register__form"
+        onSubmit={handleSubmit}
+      >
         <div className="register__inputs">
           <Link className="register__logo" to="/"><img className="register__logo" src={logo} alt="Movies Explorer" /></Link>
           <h2 className="register__title">Добро пожаловать!</h2>
@@ -18,8 +31,10 @@ function Register() {
             maxLength="40"
             required
             name="name"
+            value={formValue.name || ''}
+            onChange={handleChange}
           />
-          <span className="name-field-error register__span"></span>
+          <span className="name-field-error register__span">{error.name || ''}</span>
           <label for="email-field" className="register__lable">E-mail</label>
           <input
             type="email"
@@ -28,21 +43,39 @@ function Register() {
             minLength="2"
             maxLength="50"
             required
-            name="email"/>
-          <span className="email-field-error register__span"></span>
+            name="email"
+            value={formValue.email || ''}
+            onChange={handleChange}
+          />
+          <span className="email-field-error register__span">{error.email || ''}</span>
           <label for="password-field" className="register__lable">Пароль</label>
           <input
             type="password"
             id="password-field"
+<<<<<<< Updated upstream
             className="register__field password-register__field"
             minLength="2"
             maxLength="40"
+=======
+            className="register__field"
+            minLength="8"
+            maxLength="30"
+>>>>>>> Stashed changes
             required
             name="password"
+            value={formValue.password || ''}
+            onChange={handleChange}
           />
-          <span className="password-field-error register__span">Что-то пошло не так...</span>
+          <span className="password-field-error register__span">{error.password || ''}</span>
         </div>
-        <button type="submit" className="register__submit" name="submit" defaultValue="Зарегистрироваться">Зарегистрироваться</button>
+        <button
+          type="submit"
+          className="register__submit"
+          name="submit"
+          defaultValue="Зарегистрироваться"
+        >
+          {props.isAuthLoading ? "Регистрация..." : "Зарегистрироваться"}
+        </button>
       </form>
       <div className="register__bottom">
         <h2 className="register__text">Уже зарегистрированы?</h2>

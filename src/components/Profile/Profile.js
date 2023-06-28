@@ -1,12 +1,17 @@
-import React from "react";
+import { useState } from 'react';
 import { Link } from "react-router-dom";
+import { UserContext } from "../../contexts/CurrentUserContext";
+import { useContext } from 'react';
 
 function Profile() {
+  const { name, email } = useContext(UserContext);
+  const [values, setValues] = useState({ name, email });
+
   return (
     <section className="profile">
       <form name="profile__form" className="profile__form">
         <div className="profile__inputs">
-          <h2 className="profile__title">Привет, Виталий!</h2>
+          <h2 className="profile__title">Привет, {name}!</h2>
           <div className="profile__input">
             <label for="name-field" className="profile__lable">Имя</label>
             <input
@@ -17,7 +22,7 @@ function Profile() {
               maxLength="30"
               required
               name="name"
-              defaultValue="Виталий"
+              value={values.name}
             />
             <span className="name-field-error profile__span"></span>
           </div>
@@ -31,17 +36,17 @@ function Profile() {
               maxLength="40"
               required
               name="email"
-              defaultValue="pochta@yandex.ru"
-            />
+              value={values.email}
+              />
             <span className="email-field-error profile__span"></span>
           </div>
         </div>
         <button type="submit" className="profile__submit" name="submit" defaultValue="Сохранить">Сохранить</button>
       </form>
-      <div className="profile__bottom">
+      <nav className="profile__bottom">
         <Link to="/profile" className="profile__link">Редактировать</Link>
-        <Link to="/signup" className="profile__link profile__link-red">Выйти из аккаунта</Link>
-      </div>
+        <Link to="/signin" className="profile__link profile__link-red">Выйти из аккаунта</Link>
+      </nav>
     </section>
   );
 }

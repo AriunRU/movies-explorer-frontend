@@ -1,18 +1,20 @@
 import React from "react";
 import MoviesCard from '../MoviesCard/MoviesCard'
+import Preloader from '../Preloader/Preloader'
 
-function MoviesCardList() {
+function MoviesCardList(props) {
   return (
     <section className="movies">
-      <MoviesCard/>
-      <MoviesCard/>
-      <MoviesCard/>
-      <MoviesCard/>
-      <MoviesCard/>
-      <MoviesCard/>
-      <MoviesCard/>
-      <MoviesCard/>
-      <MoviesCard/>
+      {props.isLoading && <Preloader /> ||
+        props.movies?.map((movie) => {
+          return (
+            <MoviesCard
+              key={movie._id}
+              movie={movie}
+              onSaveMovie={props.onSaveMovie}
+            />
+          );
+        })}
     </section>
   );
 }

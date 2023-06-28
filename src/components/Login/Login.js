@@ -28,7 +28,7 @@ function Login(props) {
             id="email-field"
             className="login__field"
             minLength="2"
-            maxLength="50"
+            maxLength="40"
             required
             name="email"
             value={formValue.email || ''}
@@ -41,7 +41,7 @@ function Login(props) {
             id="password-field"
             className="login__field"
             minLength="2"
-            maxLength="40"
+            maxLength="30"
             required
             name="password"
             value={formValue.password || ''}

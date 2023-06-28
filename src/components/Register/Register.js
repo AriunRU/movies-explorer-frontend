@@ -28,7 +28,7 @@ function Register(props) {
             id="name-field"
             className="register__field"
             minLength="2"
-            maxLength="40"
+            maxLength="30"
             required
             name="name"
             value={formValue.name || ''}
@@ -41,7 +41,7 @@ function Register(props) {
             id="email-field"
             className="register__field"
             minLength="2"
-            maxLength="50"
+            maxLength="40"
             required
             name="email"
             value={formValue.email || ''}

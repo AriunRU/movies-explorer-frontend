@@ -52,15 +52,9 @@ function Register(props) {
           <input
             type="password"
             id="password-field"
-<<<<<<< Updated upstream
             className="register__field password-register__field"
             minLength="2"
             maxLength="40"
-=======
-            className="register__field"
-            minLength="8"
-            maxLength="30"
->>>>>>> Stashed changes
             required
             name="password"
             value={formValue.password || ''}

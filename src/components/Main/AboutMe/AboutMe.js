@@ -1,13 +1,10 @@
-import '../App/App.css';
-import './AboutMe.css';
-import RunningTitle from '../RunningTitle/RunningTitle';
-import studentPhoto from '../../images/me.svg';
+import studentPhoto from '../../../images/me.svg';
 
 function AboutMe() {
   return (
     <section className='about-me' id='about'>
       <div className='wrapper'>
-        <RunningTitle text='Студент' />
+        <h2 className="about__title">Студент</h2>
         <div className='about-me__block'>
           <div className='about-me__desription'>
             <h2 className='about-me__title'>Кирилл</h2>

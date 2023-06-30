@@ -1,4 +1,3 @@
-import './StartPage.css';
 import logo from '../../images/logo.svg';
 import StartPageForm from '../StartPageForm/StartPageForm';
 import { Link } from 'react-router-dom';

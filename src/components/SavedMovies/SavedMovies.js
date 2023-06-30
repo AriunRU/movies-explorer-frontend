@@ -1,5 +1,3 @@
-import '../App/App.css';
-import './SavedMovies.css';
 import { BlockPage } from '../BlockPage/BlockPage';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';

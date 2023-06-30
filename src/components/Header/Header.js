@@ -1,6 +1,4 @@
 import { Link, useLocation } from 'react-router-dom';
-import './Header.css';
-import '../App/App.css';
 import logo from '../../images/logo.svg';
 import NavTab from '../NavTab/NavTab';
 import Navigation from '../Navigation/Navigation';

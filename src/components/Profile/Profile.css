@@ -67,7 +67,7 @@
   font-size: 10px;
   font-weight: 400;
   line-height: 12px;
-  color: #FF4062;
+  color: #EE3465;
 }
 
 .profile__button-block {
@@ -96,11 +96,11 @@
 
 .profile__button_active:nth-child(2n) {
   margin-bottom: 0;
-  color: #FF4062;
+  color: #EE3465;
 }
 
 .profile__button_active:nth-child(2n):hover {
-  border-bottom: 1px solid #FF4062;
+  border-bottom: 1px solid #EE3465;
 }
 
 .profile__button_active {
@@ -118,7 +118,7 @@
 
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 880px) {
   .profile__title {
     margin: 236px auto 79px;
   }
@@ -128,7 +128,7 @@
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 580px) {
   .profile__title {
     margin: 70px auto 63px;
   }
@@ -136,9 +136,7 @@
   .profile__button-block {
     margin: 379px auto 0;
   }
-}
 
-@media screen and (max-width: 470px) {
   .profile__form {
     width: calc(100% - 60px);
     margin: 0 30px;

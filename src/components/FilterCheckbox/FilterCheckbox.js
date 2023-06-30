@@ -1,6 +1,3 @@
-import './FilterCheckbox.css';
-import { useState } from 'react';
-
 function FilterCheckbox({ isShortMovies, isShortSavedMovies, selectShortMovies, savedMoviesPage }) {
   function handleShortMoviesSelect() {
     selectShortMovies()

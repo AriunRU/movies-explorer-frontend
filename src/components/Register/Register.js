@@ -1,4 +1,3 @@
-import './Register.css';
 import StartPage from '../StartPage/StartPage';
 import { useFormHandler } from '../../utils/useFormHandler';
 import { REGEX_EMAIL, ERR_MESSAGE_EMAIL } from '../../utils/constants';

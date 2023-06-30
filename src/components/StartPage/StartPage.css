@@ -58,15 +58,15 @@
 }
 
 .start-page__input_type_error {
-  color: #FF4062;
+  color: #EE3465;
 }
 
 .start-page__input_type_error:focus {
-  border-bottom: 1px solid #FF4062;
+  border-bottom: 1px solid #EE3465;
 }
 
 .start-page__input_error {
-  color: #FF4062;
+  color: #EE3465;
 }
 
 .input-block__error {
@@ -77,7 +77,7 @@
   font-size: 10px;
   font-weight: 400;
   line-height: 12px;
-  color: #FF4062;
+  color: #EE3465;
 }
 
 .start-page__button {
@@ -123,7 +123,7 @@
   color: #2BE080;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 880px) {
   .start-page {
     height: 1024px;
     padding-top: 232px;
@@ -138,7 +138,7 @@
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 580px) {
   .start-page {
     width: 85%;
     min-width: 260px;

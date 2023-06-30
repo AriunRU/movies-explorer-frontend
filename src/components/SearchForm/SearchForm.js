@@ -1,4 +1,3 @@
-import './SearchForm.css';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import iconInput from '../../images/icon-search.svg';
 import { setLocalStorageItem, getLocalStorageItem } from '../../utils/constants';

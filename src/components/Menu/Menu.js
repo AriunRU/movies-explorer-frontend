@@ -1,6 +1,4 @@
 import { Link, NavLink } from 'react-router-dom';
-import './Menu.css';
-
 
 function Menu({ isOpen, onClose }) {
   return (

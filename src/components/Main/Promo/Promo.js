@@ -1,6 +1,3 @@
-import './Promo.css';
-import '../App/App.css';
-
 function Promo() {
   return (
     <section className='promo'>

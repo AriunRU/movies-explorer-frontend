@@ -28,7 +28,7 @@
   font-size: 28px;
   line-height: 60px;
   letter-spacing: -0.04em;
-  color: #000000;
+  color: #000;
 }
 
 .portfolio__link {
@@ -47,7 +47,7 @@
   color: #000;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 880px) {
   .portfolio {
     padding: 0 50px 70px;
   }

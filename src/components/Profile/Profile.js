@@ -1,7 +1,6 @@
 import { BlockPage } from '../BlockPage/BlockPage';
-import './Profile.css';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { useFormHandler } from '../../utils/useFormHandler';
 import { REGEX_EMAIL, ERR_MESSAGE_EMAIL } from '../../utils/constants';
 

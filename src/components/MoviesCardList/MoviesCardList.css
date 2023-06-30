@@ -44,25 +44,21 @@
   transition: background-color .1s linear;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 880px) {
   .movies-list__block {
     grid-gap: 30px;
   }
 }
 
-@media screen and (max-width: 650px) {
-  .movies-list__block {
-    max-width: 400px;
-  }
-}
-
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 580px) {
   .movies-list {
     padding: 50px 0 80px;
   }
-}
 
-@media screen and (max-width: 500px) {
+  .movies-list__block {
+    max-width: 400px;
+  }
+
   .movies-list__button-show {
     margin-top: 50px;
     font-size: 12px;

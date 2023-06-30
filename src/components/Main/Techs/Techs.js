@@ -1,12 +1,8 @@
-import '../App/App.css';
-import './Techs.css';
-import RunningTitle from '../RunningTitle/RunningTitle';
-
 function Techs() {
   return (
     <section className='techs' id='techs'>
       <div className='wrapper'>
-        <RunningTitle text='Технологии' />
+        <h2 className="techs__name">Технологии</h2>
         <h2 className='techs__title'>7 технологий</h2>
         <p className='techs__subtitle'>На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.</p>
         <ul className='techs__block'>

@@ -118,7 +118,7 @@
   transform: translate(-32%, 50%);
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 580px) {
   .menu {
     max-height: 780px;
   }

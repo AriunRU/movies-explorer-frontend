@@ -1,5 +1,3 @@
-import './StartPageForm.css';
-
 function StartPageForm({ children }) {
 
   return (

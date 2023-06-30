@@ -1,5 +1,5 @@
 export const URL_MOVIES = 'https://api.nomoreparties.co/beatfilm-movies';
-export const URL_MAIN = 'http://localhost:3000';
+export const URL_MAIN = 'http://api.ariun-movies.nomoredomains.rocks';
 export const URL_LOCAL = '';
 export const SHORT_FILM_DURATION = 40;
 export const REGEX_EMAIL = "[A-z0-9!#$%&'*+-/=?^_`{|]{1,64}@[A-z0-9-.]{2,253}\\.[A-z]{2,63}";
@@ -21,8 +21,8 @@ export const quantityCardsAdd = () => {
 }
 
 export const widthScreen = () => {
-  const WIDTH_SCREEN_M = 917;
-  const WIDTH_SCREEN_S = 651;
+  const WIDTH_SCREEN_M = 880;
+  const WIDTH_SCREEN_S = 580;
 
   return { WIDTH_SCREEN_S, WIDTH_SCREEN_M }
 }

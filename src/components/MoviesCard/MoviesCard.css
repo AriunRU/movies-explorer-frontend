@@ -41,7 +41,7 @@
   font-weight: 500;
   font-size: 15px;
   line-height: 18px;
-  color: #000000;
+  color: #000;
   overflow: hidden;
   text-overflow: hidden;
   text-align: left;
@@ -82,23 +82,17 @@
   background-image: url(../../images/deleteBTN.svg);
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 880px) {
   .movies-card__photo {
     height: 190px;
   }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 580px) {
   .movies-card {
     max-width: 400px;
   }
 
-  .movies-card__info {
-    padding: 0 14px 14px;
-  }
-}
-
-@media screen and (max-width: 420px) {
   .movies-card__photo {
     height: 168px;
   }

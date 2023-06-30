@@ -1,22 +1,15 @@
-import React from "react";
+import './FilterCheckbox.css';
+import { useState } from 'react';
 
-function FilterCheckbox(props) {
+function FilterCheckbox({ isShortMovies, isShortSavedMovies, selectShortMovies, savedMoviesPage }) {
+  function handleShortMoviesSelect() {
+    selectShortMovies()
+  }
 
-  function handleChange (e) {
-    props.setIsChecked(e.target.checked);
-    props.onFilterCheckbox(e.target.checked);
-  };
-
+  let checkbox = savedMoviesPage ? isShortSavedMovies : isShortMovies;
+  
   return (
-    <label className="checkbox">
-	    <input
-        type="checkbox"
-        className="checkbox__input"
-        checked={props.isChecked}
-        onChange={handleChange}>
-      </input>
-	    <span className="checkbox__switch"></span>
-    </label>
+    <div className={`toggle ${checkbox ? 'toggle_active' : ''}`} onClick={handleShortMoviesSelect} />
   );
 }
 

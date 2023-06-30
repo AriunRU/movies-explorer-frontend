@@ -1,54 +1,126 @@
-import { useState } from 'react';
-import { Link } from "react-router-dom";
-import { UserContext } from "../../contexts/CurrentUserContext";
-import { useContext } from 'react';
+import { BlockPage } from '../BlockPage/BlockPage';
+import './Profile.css';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import { useState, useEffect, useContext } from "react";
+import { useFormHandler } from '../../utils/useFormHandler';
+import { REGEX_EMAIL, ERR_MESSAGE_EMAIL } from '../../utils/constants';
 
-function Profile() {
-  const { name, email } = useContext(UserContext);
-  const [values, setValues] = useState({ name, email });
+function Profile({ loggedIn, location, signOut, onUpdateUser, handleNavClick, inputsActive, setInputsActive }) {
+  const { handleChange, inputValues, inputErrors, setInputValues, setInputErrors } = useFormHandler();
+  const currentUser = useContext(CurrentUserContext);
+
+  useEffect(() => {
+    setInputValues({
+      ...inputValues,
+      name: currentUser.name,
+      email: currentUser.email,
+    });
+  }, [currentUser]);
+
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    onUpdateUser({
+      name: inputValues.name,
+      email: inputValues.email,
+    });
+  }
+
+  function handleStartEdit() {
+    setInputsActive(true);
+  }
+
+  function handleCancelEdit() {
+    setInputsActive(false);
+    setInputValues({
+      ...inputValues,
+      name: currentUser.name,
+      email: currentUser.email,
+    })
+    setInputErrors({
+      ...inputErrors,
+      name: '',
+      email: ''
+    })
+  }
+
+  const buttonInactive =
+  inputErrors.email || inputErrors.name ||
+  (currentUser.email === inputValues.email && currentUser.name === inputValues.name);
 
   return (
-    <section className="profile">
-      <form name="profile__form" className="profile__form">
-        <div className="profile__inputs">
-          <h2 className="profile__title">Привет, {name}!</h2>
-          <div className="profile__input">
-            <label for="name-field" className="profile__lable">Имя</label>
+    <BlockPage loggedIn={loggedIn} location={location} handleNavClick={handleNavClick}>
+      <section className='profile'>
+        <h2 className='profile__title'>{`Привет, ${currentUser.name}!`}</h2>
+        <form
+          className='profile__form'
+          id='profile-form'
+        >
+          <div className='profile__input-block profile__input-block_name'>
+            <p className='profile__text'>Имя</p>
             <input
-              type="text"
-              id="name-field"
-              className="profile__field"
-              minLength="2"
-              maxLength="30"
+              readOnly={!inputsActive}
+              className='profile__input profile__input_name'
+              id='profile-name'
+              name='name'
+              placeholder='Виталий'
+              onChange={handleChange}
+              value={inputValues.name || ''}
+              minLength='2'
               required
-              name="name"
-              value={values.name}
             />
-            <span className="name-field-error profile__span"></span>
+            <span className='profile__input-block_error'>
+              {inputErrors.name}
+            </span>
           </div>
-          <div className="profile__input">
-            <label for="email-field" className="profile__lable">E-mail</label>
+          <div className='profile__input-block'>
+            <p className='profile__text'>E-mail</p>
             <input
-              type="email"
-              id="email-field"
-              className="profile__field profile__field-last"
-              minLength="2"
-              maxLength="40"
+              readOnly={!inputsActive}
+              className='profile__input profile__input_email'
+              id='profile-email'
+              type='email' name='email'
+              placeholder='pochta@yandex.ru'
+              onChange={handleChange}
+              value={inputValues.email || ''}
+              pattern={REGEX_EMAIL}
               required
-              name="email"
-              value={values.email}
-              />
-            <span className="email-field-error profile__span"></span>
+            />
+            <span className='profile__input-block_error'>
+              {inputErrors?.email && ERR_MESSAGE_EMAIL}
+            </span>
           </div>
+        </form>
+        <div className='profile__button-block'>
+          <button
+            className={`profile__button ${!inputsActive && 'profile__button_active'}`}
+            type='button'
+            onClick={handleStartEdit}
+          >Редактировать
+          </button>
+          <button
+            className={`profile__button ${!inputsActive && 'profile__button_active'}`}
+            type='button'
+            onClick={signOut}
+          >Выйти из аккаунта
+          </button>
+          <button
+            className={`profile__button ${inputsActive && 'profile__button_active'} ${buttonInactive && "profile__button_disabled"}`}
+            form='profile-form'
+            type='submit'
+            disabled={buttonInactive}
+            onClick={handleSubmit}
+          >Сохранить
+          </button>
+          <button
+            className={`profile__button ${inputsActive && 'profile__button_active'}`}
+            type='button'
+            onClick={handleCancelEdit}
+          >Отмена
+          </button>
         </div>
-        <button type="submit" className="profile__submit" name="submit" defaultValue="Сохранить">Сохранить</button>
-      </form>
-      <nav className="profile__bottom">
-        <Link to="/profile" className="profile__link">Редактировать</Link>
-        <Link to="/signin" className="profile__link profile__link-red">Выйти из аккаунта</Link>
-      </nav>
-    </section>
-  );
+      </section>
+    </BlockPage>
+  )
 }
 
 export default Profile;

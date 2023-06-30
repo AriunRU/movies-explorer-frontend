@@ -1,0 +1,80 @@
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.navigation__container {
+  display: flex;
+  align-items: center;
+}
+
+.navigation__button-close {
+  display: block;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 30px;
+  height: 30px;
+  background-image: url(../../images/menu_close.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 0;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.navigation__link {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  text-decoration: none;
+  color: #000;
+}
+
+.navigation__link.active {
+  font-weight: 500;
+}
+
+.navigation__link_to_movies {
+  margin-right: 20px;
+}
+
+.navigation__link_to_saved-movies {
+  margin-right: 50px;
+}
+
+.navigation__link_to_profile {
+  position: relative;
+  display: inline-block;
+  align-items: center;
+  width: 100px;
+  height: 32px;
+  line-height: 16px;
+  border: 2px solid rgba(170, 170, 170, .2);
+  border-radius: 50px;
+  transition: background-color .2s ease-in;
+}
+
+.navigation__link_to_profile:hover {
+  background-color: rgba(170, 170, 170, .2);
+}
+
+.navigation__img {
+  position: absolute;
+  bottom: 50%;
+  left: 20%;
+  transform: translate(-70%, 50%);
+}
+
+.navigation__text {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-32%, 50%);
+}
+
+@media screen and (max-width: 768px) {
+  .navigation {
+    display: none;
+  }
+}

@@ -1,40 +1,55 @@
-import React from "react";
-import { useLocation } from 'react-router-dom';
+import './MoviesCard.css';
+import { React } from 'react';
 
 function MoviesCard(props) {
-  let location = useLocation();
+  const {
+    movie,
+    isSaved,
+    savedMovies,
+    savedMoviesPage,
+    handleAddFavorites,
+    handleRemoveFavorites,
+  } = props;
 
-  let ButtonSaveClass = `${(props.movie.isSaved) ? "movie__saved" : "movie__save"}`;
+  const urlImage = savedMoviesPage ? movie.image : `https://api.nomoreparties.co${movie.image.url}`;
+  const buttonClassName = savedMoviesPage ? 'movies-card__button_delete' : `movies-card__button_like ${isSaved && 'movies-card__button_like_active'}`;
 
-  function handleSaveMovie(e) {
-    e.preventDefault();
-    props.onSaveMovie(props.movie);
+  const hours = Math.floor(movie.duration / 60);
+  const minutes = movie.duration % 60;
+
+  function handleButtonClick() {
+    if (savedMoviesPage) {
+      handleRemoveFavorites(movie)
+    } else {
+      if (isSaved) {
+        const removeMovie = savedMovies.filter(saveMovie => saveMovie.movieId === movie.id);
+        handleRemoveFavorites(removeMovie.shift());
+      } else {
+        handleAddFavorites(movie)
+      }
+    }
   }
 
   return (
-    <section className="movie">
-      <div className="movie__container">
-        <div className="movie__info">
-          <h2 className="movie__name">{props.movie.nameRU}</h2>
-          <h2 className="movie__duration">{props.movie.duration} мин</h2>
+    <article className='movies-card'>
+      <a className='movies-card__trailer-link' href={movie.trailerLink} target='_blank' rel="noreferrer">
+        <img className='movies-card__photo' src={urlImage} alt='постер фильма' />
+      </a>
+      <div className='movies-card__info'>
+        <div className='movies-card__text'>
+          <h3 className='movies-card__title'>{movie.nameRU}</h3>
+          <p className='movies-card__duration'>{`${hours}ч ${minutes}м`}</p>
         </div>
         <button
+          className={`movies-card__button ${buttonClassName}`}
+          onClick={handleButtonClick}
+          id="button-like"
           type="button"
-          aria-label="Сохранить"
-          className={`movie__button ${(location.pathname === "/movies") ? ButtonSaveClass : "movie__hidden"}`}
-          onClick={handleSaveMovie}
-        />
-        <button
-          type="button"
-          aria-label="Сохранить"
-          className={`movie__button ${(location.pathname === "/saved-movies") ? "movie__close" : "movie__hidden"}`}
+          name="like"
         />
       </div>
-      <a href={props.movie.trailerLink} target="_blank" rel="noreferrer">
-        <img className="movie__img" src={`https://api.nomoreparties.co/${props.movie.image.url}`} alt="movieimage" />
-      </a>
-    </section>
-  );
+    </article>
+  )
 }
 
 export default MoviesCard;

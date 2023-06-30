@@ -1,69 +1,56 @@
-import React from "react";
-import logo from "../../images/logo.svg";
-import { Link } from "react-router-dom";
-import useForm from "../../hooks/useForm";
+import StartPage from '../StartPage/StartPage';
+import { useFormHandler } from '../../utils/useFormHandler';
+import { REGEX_EMAIL, ERR_MESSAGE_EMAIL } from '../../utils/constants';
 
-function Login(props) {
-  const {formValue, error, handleChange, resetValidation} = useForm();
+function Login({ onFormSubmit }) {
+  const { inputValues, inputErrors, handleChange } = useFormHandler();
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    props.handleLogin(formValue);
-    resetValidation();
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    onFormSubmit({
+      email: inputValues.email,
+      password: inputValues.password,
+    });
   }
 
   return (
-    <section className="login">
-      <form
-        name="login__form"
-        className="login__form"
-        onSubmit={handleSubmit}
-      >
-        <div className="login__inputs">
-          <Link className="login__logo" to="/"><img className="login__logo" src={logo} alt="Movies Explorer" /></Link>
-          <h2 className="login__title">Рады видеть!</h2>
-          <label for="email-field" className="login__lable">E-mail</label>
-          <input
-            type="email"
-            id="email-field"
-            className="login__field"
-            minLength="2"
-            maxLength="40"
-            required
-            name="email"
-            value={formValue.email || ''}
-            onChange={handleChange}
-          />
-          <span className="name-field-error login__span">{error.email || ''}</span>
-          <label for="password-field" className="login__lable">Пароль</label>
-          <input
-            type="password"
-            id="password-field"
-            className="login__field"
-            minLength="2"
-            maxLength="30"
-            required
-            name="password"
-            value={formValue.password || ''}
-            onChange={handleChange}
-          />
-          <span className="profession-field-error login__span">{error.password || ''}</span>
-        </div>
-        <button
-          type="submit"
-          className="login__submit"
-          name="submit"
-          defaultValue="Войти"
-        >
-          {props.isAuthLoading ? "Вход..." : "Войти"}
-        </button>
-      </form>
-      <div className="login__bottom">
-        <h2 className="login__text">Ещё не зарегистрированы?</h2>
-        <Link to="/signup" className="login__text login__link">Регистрация</Link>
+    <StartPage
+      title='Рады видеть!'
+      textButtonSubmit='Войти'
+      textButtonRedirect='Регистрация'
+      questionToRedirect='Ещё не зарегистрированы?'
+      redirectTo='/signup'
+      onFormSubmit={handleSubmit}
+      inputValues={inputValues}
+      inputErrors={inputErrors}
+    >
+      <div className='input-block start-page__input-block'>
+        <p className='form__caption'>E-mail</p>
+        <input
+          id="email-input"
+          className={`start-page__input ${inputErrors.email && 'start-page__input_type_error'}`}
+          type="email" name="email"
+          onChange={handleChange}
+          value={inputValues.email || ''}
+          pattern={REGEX_EMAIL}
+          required
+        />
+        <span className='input-block__error'>{inputErrors?.email && ERR_MESSAGE_EMAIL}</span>
       </div>
-    </section>
-  );
+      <div className='input-block start-page__input-block'>
+        <p className='form__caption'>Пароль</p>
+        <input
+          id="password-input"
+          className={`start-page__input ${inputErrors.password && 'start-page__input_type_error'}`}
+          type="password" name="password"
+          onChange={handleChange}
+          value={inputValues.password || ''}
+          required
+        />
+        <span className='input-block__error'>{inputErrors.password}</span>
+      </div>
+    </StartPage>
+  )
 }
 
 export default Login;

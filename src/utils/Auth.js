@@ -1,55 +1,25 @@
-class Auth {
-  constructor(options) {
-    this._baseUrl = options.BASE_URL;
-    this._headers = options.headers;
-  }
+import { URL_MAIN } from "./constants";
 
-  _getResponseData(res) {
-    if (!res.ok) {
-      return Promise.reject(`Ошибка: ${res.status}`);
-    }
-    return res.json();
-  }
+const getResponse = (res) => {
+  return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
+};
 
-  _request(url, options) {
-    return fetch(url, options).then(this._getResponseData);
-  }
-
-  register = (email, password, name) => {
-    return this._request(`${this._baseUrl}/signup`, {
-      method: "POST",
-      headers: this._headers,
-      credentials: "include",
-      body: JSON.stringify({ email, password, name }),
-    });
-  };
-
-  authorize = ( email, password ) => {
-    return this._request(`${this._baseUrl}/signin`, {
-      method: "POST",
-      headers: this._headers,
-      credentials: "include",
-      body: JSON.stringify({ email, password }),
-    }).then((res) => {
-      return res;
-    });
-  };
-
-  checkToken = (token) => {
-    return this._request(`${this._baseUrl}/users/me`, {
-      method: "GET",
-      headers: this._headers,
-      credentials: "include",
-    });
-  };
+export const register = (name, email, password) => {
+  return fetch(`${URL_MAIN}/signup`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ name, email, password }),
+  }).then(getResponse)
 }
 
-const auth = new Auth({
-  BASE_URL: "https://api.ariun-movies.nomoredomains.rocks",
-  headers: {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-  },
-});
-
-export default auth;
+export const authorize = (email, password) => {
+  return fetch(`${URL_MAIN}/signin`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ password, email }),
+  }).then(getResponse)
+}

@@ -1,82 +1,72 @@
-import React from "react";
-import logo from "../../images/logo.svg";
-import { Link } from "react-router-dom";
-import useForm from "../../hooks/useForm";
+import './Register.css';
+import StartPage from '../StartPage/StartPage';
+import { useFormHandler } from '../../utils/useFormHandler';
+import { REGEX_EMAIL, ERR_MESSAGE_EMAIL } from '../../utils/constants';
 
-function Register(props) {
-  const {formValue, error, handleChange, resetValidation} = useForm();
+function Register({ onFormSubmit }) {
+  const { inputValues, inputErrors, handleChange } = useFormHandler();
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    props.handleRegister(formValue);
-    resetValidation();
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    onFormSubmit({
+      name: inputValues.name,
+      email: inputValues.email,
+      password: inputValues.password,
+    })
   }
 
   return (
-    <section className="register">
-      <form
-        name="register__form"
-        className="register__form"
-        onSubmit={handleSubmit}
-      >
-        <div className="register__inputs">
-          <Link className="register__logo" to="/"><img className="register__logo" src={logo} alt="Movies Explorer" /></Link>
-          <h2 className="register__title">Добро пожаловать!</h2>
-          <label for="name-field" className="register__lable">Имя</label>
-          <input
-            type="text"
-            id="name-field"
-            className="register__field"
-            minLength="2"
-            maxLength="30"
-            required
-            name="name"
-            value={formValue.name || ''}
-            onChange={handleChange}
-          />
-          <span className="name-field-error register__span">{error.name || ''}</span>
-          <label for="email-field" className="register__lable">E-mail</label>
-          <input
-            type="email"
-            id="email-field"
-            className="register__field"
-            minLength="2"
-            maxLength="40"
-            required
-            name="email"
-            value={formValue.email || ''}
-            onChange={handleChange}
-          />
-          <span className="email-field-error register__span">{error.email || ''}</span>
-          <label for="password-field" className="register__lable">Пароль</label>
-          <input
-            type="password"
-            id="password-field"
-            className="register__field password-register__field"
-            minLength="2"
-            maxLength="40"
-            required
-            name="password"
-            value={formValue.password || ''}
-            onChange={handleChange}
-          />
-          <span className="password-field-error register__span">{error.password || ''}</span>
-        </div>
-        <button
-          type="submit"
-          className="register__submit"
-          name="submit"
-          defaultValue="Зарегистрироваться"
-        >
-          {props.isAuthLoading ? "Регистрация..." : "Зарегистрироваться"}
-        </button>
-      </form>
-      <div className="register__bottom">
-        <h2 className="register__text">Уже зарегистрированы?</h2>
-        <Link to="/signin" className="register__text register__link">Войти</Link>
+    <StartPage
+      title='Добро пожаловать!'
+      textButtonSubmit='Зарегистрироваться'
+      textButtonRedirect='Войти'
+      questionToRedirect='Уже зарегистрированы?'
+      redirectTo='/signin'
+      onFormSubmit={handleSubmit}
+      inputValues={inputValues}
+      inputErrors={inputErrors}
+    >
+      <div className='input-block start-page__input-block'>
+        <p className='form__caption'>Имя</p>
+        <input
+          id="name-input"
+          className={`start-page__input ${inputErrors.name && 'start-page__input_type_error'}`}
+          name="name"
+          onChange={handleChange}
+          value={inputValues.name || ''}
+          minLength='2'
+          maxLength='30'
+          required
+        />
+        <span className='input-block__error'>{inputErrors.name}</span>
       </div>
-    </section>
-  );
+      <div className='input-block start-page__input-block'>
+        <p className='form__caption'>E-mail</p>
+        <input
+          id="email-input"
+          className={`start-page__input ${inputErrors.email && 'start-page__input_type_error'}`}
+          type="email" name="email"
+          onChange={handleChange}
+          value={inputValues.email || ''}
+          pattern={REGEX_EMAIL}
+          required
+        />
+        <span className='input-block__error'>{inputErrors?.email && ERR_MESSAGE_EMAIL}</span>
+      </div>
+      <div className='input-block start-page__input-block'>
+        <p className='form__caption'>Пароль</p>
+        <input
+          id="password-input"
+          className={`start-page__input ${inputErrors.password && 'start-page__input_type_error'}`}
+          type="password" name="password"
+          onChange={handleChange}
+          value={inputValues.password || ''}
+          required
+        />
+        <span className='input-block__error'>{inputErrors.password}</span>
+      </div>
+    </StartPage>
+  )
 }
 
 export default Register;

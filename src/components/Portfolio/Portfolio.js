@@ -1,6 +1,5 @@
 import '../App/App.css';
 import './Portfolio.css';
-import linkArrow from '../../images/link-arrow.png';
 
 function Portfolio() {
   return (
@@ -9,21 +8,21 @@ function Portfolio() {
         <h2 className='portfolio__title'>Портфолио</h2>
         <ul className='block portfolio__block'>
           <li className='block__item'>
-            <a className='link portfolio__link' href='https://vsgofman.github.io/how-to-learn/' target='_blank' rel='noreferrer'>
+            <a className='link portfolio__link' href='https://github.com/AriunRU/how-to-learn' target='_blank' rel='noreferrer'>
               <p className='link__text'>Статичный сайт</p>
-              <img className='link__img' src={linkArrow} alt='стрелка' />
+              <h2 className="portfolio__arrow">↗</h2>
             </a>
           </li>
           <li className='block__item'>
-            <a className='link portfolio__link' href='https://vsgofman.github.io/russian-travel/' target='_blank' rel='noreferrer'>
+            <a className='link portfolio__link' href='https://AriunRU.github.io/russian-travel' target='_blank' rel='noreferrer'>
               <p className='link__text'>Адаптивный сайт</p>
-              <img className='link__img' src={linkArrow} alt='стрелка' />
+              <h2 className="portfolio__arrow">↗</h2>
             </a>
           </li>
           <li className='block__item'>
-            <a className='link portfolio__link' href='https://vsgofman.github.io/react-mesto-auth/' target='_blank' rel='noreferrer'>
+            <a className='link portfolio__link' href='https://ariun.nomoredomains.monster' target='_blank' rel='noreferrer'>
               <p className='link__text'>Одностраничное приложение</p>
-              <img className='link__img' src={linkArrow} alt='стрелка' />
+              <h2 className="portfolio__arrow">↗</h2>
             </a>
           </li>
         </ul>

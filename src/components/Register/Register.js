@@ -49,6 +49,8 @@ function Register({ onFormSubmit }) {
           onChange={handleChange}
           value={inputValues.email || ''}
           pattern={REGEX_EMAIL}
+          minLength='2'
+          maxLength='50'
           required
         />
         <span className='input-block__error'>{inputErrors?.email && ERR_MESSAGE_EMAIL}</span>
@@ -61,6 +63,8 @@ function Register({ onFormSubmit }) {
           type="password" name="password"
           onChange={handleChange}
           value={inputValues.password || ''}
+          minLength='2'
+          maxLength='40'
           required
         />
         <span className='input-block__error'>{inputErrors.password}</span>

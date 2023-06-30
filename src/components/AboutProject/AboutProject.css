@@ -41,8 +41,8 @@
 }
 
 .time__item_part_backend {
-  color: #fff;
-  background-color: #000;
+  color: #000;
+  background-color: #2BE080;
 }
 
 .time__item_part_backend::after {

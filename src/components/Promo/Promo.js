@@ -4,9 +4,12 @@ import '../App/App.css';
 function Promo() {
   return (
     <section className='promo'>
-      <div className='wrapper promo__wrapper'>
-        <h1 className='promo__title'>Учебный проект студента факультета Веб-разработки.</h1>
-      </div>
+        <h2 className="promo__title">Учебный проект студента &nbsp; факультета Веб-разработки.</h2>
+        <ul className="navtab__menu">
+          <li><a href="#project" className="navtab__link">О проекте</a></li>
+          <li><a href="#techs" className="navtab__link">Технологии</a></li>
+          <li><a href="#about" className="navtab__link">Студент</a></li>
+        </ul>
     </section>
   )
 }

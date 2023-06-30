@@ -1,5 +1,4 @@
 import { Link, NavLink } from 'react-router-dom';
-import iconProfile from '../../images/icon-profile.png';
 import './Menu.css';
 
 
@@ -26,7 +25,6 @@ function Menu({ isOpen, onClose }) {
           </NavLink>
         </nav>
         <Link className='menu__link menu__link_to_profile' to='/profile' onClick={onClose}>
-          <img className='menu__img' src={iconProfile} alt='значок профиля' />
           <p className='menu__text'>Аккаунт</p>
         </Link>
       </div>

@@ -66,6 +66,7 @@ function Profile({ loggedIn, location, signOut, onUpdateUser, handleNavClick, in
               onChange={handleChange}
               value={inputValues.name || ''}
               minLength='2'
+              maxLength='30'
               required
             />
             <span className='profile__input-block_error'>
@@ -83,6 +84,8 @@ function Profile({ loggedIn, location, signOut, onUpdateUser, handleNavClick, in
               onChange={handleChange}
               value={inputValues.email || ''}
               pattern={REGEX_EMAIL}
+              minLength='2'
+              maxLength='50'
               required
             />
             <span className='profile__input-block_error'>

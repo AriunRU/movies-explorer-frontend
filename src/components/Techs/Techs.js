@@ -4,7 +4,7 @@ import RunningTitle from '../RunningTitle/RunningTitle';
 
 function Techs() {
   return (
-    <section className='techs'>
+    <section className='techs' id='techs'>
       <div className='wrapper'>
         <RunningTitle text='Технологии' />
         <h2 className='techs__title'>7 технологий</h2>

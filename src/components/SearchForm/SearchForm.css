@@ -64,16 +64,12 @@
   margin-right: 60px;
   border: none;
   border-radius: 48px;
-  background-color: #000;
-  background-image: url(../../images/icon__button-search.png);
+  background-color: #F9F9F9;
+  background-image: url(../../images/button_find.svg);
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
   transition: background-color .1s linear;
-}
-
-.search__button:hover {
-  background-color: #F3C1F8;
 }
 
 .search__button::after {

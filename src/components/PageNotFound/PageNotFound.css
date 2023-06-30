@@ -27,17 +27,17 @@
   font-weight: 400;
   line-height: 17px;
   text-decoration: none;
-  color: #000;
+  color: #2BE080;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 880px) {
   .not-found {
     height: 1024px;
     padding: 408px 184px 222px;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 580px) {
   .not-found {
     height: 100vh;
     padding: 329px 10px 30px;

@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
 import CardListInfo from '../CardListInfo/CardListInfo';
 import { getLocalStorageItem } from '../../utils/constants';

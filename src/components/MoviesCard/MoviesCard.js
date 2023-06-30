@@ -1,4 +1,3 @@
-import './MoviesCard.css';
 import { React } from 'react';
 
 function MoviesCard(props) {
@@ -31,11 +30,8 @@ function MoviesCard(props) {
   }
 
   return (
-    <article className='movies-card'>
-      <a className='movies-card__trailer-link' href={movie.trailerLink} target='_blank' rel="noreferrer">
-        <img className='movies-card__photo' src={urlImage} alt='постер фильма' />
-      </a>
-      <div className='movies-card__info'>
+    <section className='movies-card'>
+      <div className='movie__container'>
         <div className='movies-card__text'>
           <h3 className='movies-card__title'>{movie.nameRU}</h3>
           <p className='movies-card__duration'>{`${hours}ч ${minutes}м`}</p>
@@ -48,7 +44,10 @@ function MoviesCard(props) {
           name="like"
         />
       </div>
-    </article>
+      <a className='movies-card__photo-container' href={movie.trailerLink} target='_blank' rel="noreferrer">
+        <img className='movies-card__photo' src={urlImage} alt='постер фильма' />
+      </a>
+    </section>
   )
 }
 

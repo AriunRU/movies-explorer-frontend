@@ -1,4 +1,3 @@
-import './App.css';
 import { ProtectedRoute } from '../ProtectedRoute/ProtectedRoute';
 import { useState, useEffect, useCallback } from 'react';
 import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
@@ -10,14 +9,12 @@ import Profile from '../Profile/Profile';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import PageNotFound from '../PageNotFound/PageNotFound';
-import InfoToolTip from '../InfoToolTip/InfoToolTip';
 import { setLocalStorageItem, getLocalStorageItem } from '../../utils/constants';
 import { modalMessages, SHORT_FILM_DURATION } from '../../utils/constants';
 import mainApi from '../../utils/MainApi';
 import { getAllMovies } from '../../utils/MoviesApi';
 import { register, authorize } from '../../utils/Auth';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
@@ -392,10 +389,6 @@ function App() {
               />}
             />
           </Routes>
-          <InfoToolTip
-            modalResponse={modalResponse}
-            onClose={closeModal}
-          />
           <Menu
             isOpen={isNavigationOpen}
             onClose={closeModal}

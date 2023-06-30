@@ -1,4 +1,4 @@
-.navtab__link {
+.navtab__auth {
   text-decoration: none;
   margin-right: 30px;
   font-size: 12px;
@@ -7,21 +7,21 @@
   color: #000;
 }
 
-.navtab__link:last-child {
+.navtab__auth:last-child {
   margin-right: 0;
 }
 
-.navtab__link-button {
+.navtab__auth-button {
   width: 76px;
   height: 32px;
-  color: #fff;
-  background-color: #000;
+  color: #000;
+  background-color: #2BE080;
   padding: 8px 20px;
   border-radius: 3px;
 }
 
-@media screen and (max-width: 550px) {
-  .navtab__link {
+@media screen and (max-width: 580px) {
+  .navtab__auth {
     margin-right: 14px;
     font-size: 10px;
   }

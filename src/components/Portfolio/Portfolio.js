@@ -8,7 +8,7 @@ function Portfolio() {
         <h2 className='portfolio__title'>Портфолио</h2>
         <ul className='block portfolio__block'>
           <li className='block__item'>
-            <a className='link portfolio__link' href='https://github.com/AriunRU/how-to-learn' target='_blank' rel='noreferrer'>
+            <a className='link portfolio__link' href='https://ariunru.github.io/how-to-learn/' target='_blank' rel='noreferrer'>
               <p className='link__text'>Статичный сайт</p>
               <h2 className="portfolio__arrow">↗</h2>
             </a>

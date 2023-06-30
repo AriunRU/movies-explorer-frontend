@@ -6,7 +6,6 @@ const getResponse = (res) => {
 
 export const register = (name, email, password) => {
   return fetch(`${URL_MAIN}/signup`, {
-    mode: 'no-cors',
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -17,7 +16,6 @@ export const register = (name, email, password) => {
 
 export const authorize = (email, password) => {
   return fetch(`${URL_MAIN}/signin`, {
-    mode: 'no-cors',
     method: "POST",
     headers: {
       "Content-Type": "application/json",

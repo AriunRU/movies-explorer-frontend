@@ -1,5 +1,5 @@
 export const URL_MOVIES = 'https://api.nomoreparties.co/beatfilm-movies';
-export const URL_MAIN = 'http://api.ariun-movies.nomoredomains.rocks';
+export const URL_MAIN = 'https://api.ariun-movies.nomoredomains.rocks';
 export const URL_LOCAL = '';
 export const SHORT_FILM_DURATION = 40;
 export const REGEX_EMAIL = "[A-z0-9!#$%&'*+-/=?^_`{|]{1,64}@[A-z0-9-.]{2,253}\\.[A-z]{2,63}";

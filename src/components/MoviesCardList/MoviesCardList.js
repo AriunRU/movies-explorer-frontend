@@ -2,11 +2,10 @@ import { useState, useEffect } from 'react';
 import MoviesCard from '../MoviesCard/MoviesCard';
 import CardListInfo from '../CardListInfo/CardListInfo';
 import { getLocalStorageItem } from '../../utils/constants';
-import { quantityCards, quantityCardsAdd, widthScreen } from '../../utils/constants';
+import { quantityCards, widthScreen } from '../../utils/constants';
 
 function MoviesCardList({ movies, savedMovies, showAllMovies, onSavedClick, handleShowAllMovies, handleAddFavorites, handleRemoveFavorites, savedMoviesPage }) {
   const { QUANTITY_CARDS_S, QUANTITY_CARDS_M, QUANTITY_CARDS_L } = quantityCards();
-  const { QUANTITY_CARDS_ADD_S, QUANTITY_CARDS_ADD_M, QUANTITY_CARDS_ADD_L } = quantityCardsAdd();
   const { WIDTH_SCREEN_S, WIDTH_SCREEN_M } = widthScreen();
   const [amountCards, setAmountCards] = useState(QUANTITY_CARDS_L);
 
@@ -30,13 +29,13 @@ function MoviesCardList({ movies, savedMovies, showAllMovies, onSavedClick, hand
 
   function handleMoreMovies() {
     if (window.innerWidth > WIDTH_SCREEN_M) {
-      return setAmountCards(amountCards + QUANTITY_CARDS_ADD_L);
+      return setAmountCards(amountCards + 3);
     }
-    if (window.innerWidth === WIDTH_SCREEN_M) {
-      return setAmountCards(amountCards + QUANTITY_CARDS_ADD_M);
+    if (window.innerWidth >= WIDTH_SCREEN_M) {
+      return setAmountCards(amountCards + 2);
     }
-    if (window.innerWidth < WIDTH_SCREEN_M) {
-      return setAmountCards(amountCards + QUANTITY_CARDS_ADD_S);
+    if (window.innerWidth < WIDTH_SCREEN_S) {
+      return setAmountCards(amountCards + 1);
     }
   };
 

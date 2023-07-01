@@ -38,8 +38,6 @@ function SearchForm(props) {
     }
   }
 
-
-
   function handleFilterMovies(evt) {
     evt.preventDefault();
     if (!evt.target.closest('.search__form').checkValidity()) {

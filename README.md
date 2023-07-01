@@ -5,4 +5,4 @@ diplom on YA-Praktikum Frontend created
 
 [Ссылка на макет](https://disk.yandex.ru/d/2qTLsdU_A5uyEQ)
 
-[Ссылка на Pull-Request](https://github.com/AriunRU/movies-explorer-frontend/pull/15)
+[Ссылка на Pull-Request](https://github.com/AriunRU/movies-explorer-frontend/pull/16)

@@ -1,27 +1,20 @@
-import studentPhoto from '../../../images/me.svg';
+import studentPhoto from '../../../images/my-photo.svg'
 
-function AboutMe() {
-  return (
-    <section className='about-me' id='about'>
-      <div className='wrapper'>
-        <h2 className="about__title">Студент</h2>
-        <div className='about-me__block'>
-          <div className='about-me__desription'>
-            <h2 className='about-me__title'>Кирилл</h2>
-            <p className='about-me__subtitle'>Фронтенд-разработчик, 20 лет</p>
-            <p className='about-me__text'>Я родился и живу в Перми, закончил факультет
-            Компьютерных систем и комплексов в Пермском радиотехническом колледже
-            Люблю слушать музыку, и вечерами кататься на электросамокате.
-            Год назад захотел менять мир к лучшему и начал кодить.
-            Сейчас работаю преподавателем робототехники для подрастающего поколения на наборах Lego.
-            После защиты диплома буду активно искать работу в сфере дизайна и разработки.</p>
-            <a className='about-me__link' href='https://github.com/AriunRU'>Github</a>
-          </div>
-          <img className='about-me__photo' src={studentPhoto} alt='фото студента' />
-        </div>
-      </div>
-    </section>
-  )
+export function AboutMe() {
+    return (
+        <section className='author' id='about'>
+            <h2 className='author__header'>Студент</h2>
+            <div className='author__info'>
+                <div className='author__text-box'>
+                <h3 className='author__name'>Кирилл</h3>
+                <p className='author__description'>Фронтенд-разработчик, 20 лет</p>
+                <span className='author__about'>Я родился и живу в Перми, закончил факультет Компьютерных систем и комплексов в Пермском радиотехническом колледже
+                Люблю слушать музыку, и вечерами кататься на электросамокате. Год назад захотел менять мир к лучшему и начал кодить.
+                Сейчас работаю преподавателем робототехники для подрастающего поколения на наборах Lego. После защиты диплома буду активно искать работу в сфере дизайна и разработки</span>
+                <a className="author__link" href="https://github.com/AriunRU" target="blank" title='Ссылка на Github'>Github</a>
+                </div>
+                <img className='author__photo' src={studentPhoto} alt='Фото автора'/>
+            </div>
+        </section>
+    )
 }
-
-export default AboutMe;

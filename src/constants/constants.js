@@ -1,0 +1,10 @@
+export const MAX_WIDTH_SCREEN = 1023;
+export const MEDIUM_WIDTH_SCREEN = 512;
+export const MAX_INITIAL_MOVIES = 12;
+export const MEDIUM_INITIAL_MOVIES = 8;
+export const MIN_INITIAL_MOVIES = 5;
+export const MAX_ADD_MOVIES = 3;
+export const MIN_ADD_MOVIES = 2;
+export const URL_API_MOVIES = 'https://api.nomoreparties.co/'
+//export const BASE_URL = 'https://api.ariun-movies.nomoredomains.rocks';
+export const BASE_URL = 'http://localhost:3000';

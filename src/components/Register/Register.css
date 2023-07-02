@@ -1,0 +1,194 @@
+.register {
+    width: 396px;
+    display: flex;
+    flex-direction: column;
+    margin: 70px auto;
+}
+
+.register__logo {
+    width: 38px;
+    height: 38px;
+    margin: 0 0 40px 0;
+    background-image: url('../../images/logo.svg');
+    cursor: pointer;
+}
+
+.register__header {
+    width: 100%;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin:0 0 40px 0;
+}
+
+.register__form {
+    margin: 0 0 163px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+}
+
+.register__input-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.register__input-name {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0 0 5px;
+    width: 100%;
+    color: #000;
+}
+
+.register__input {
+    width: 100%;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.2;
+    border: none;
+    color: #000;
+    padding: 0 0 10px;
+    margin-bottom: 20px;
+    border-bottom: solid 1px #424242;
+}
+
+.register__input_error {
+    color: #EE3465;
+}
+
+.register__input:focus {
+    outline: none;
+    border-bottom: 1px solid #2BE080;
+}
+
+.register__input::placeholder {
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #FFFFFF;
+}
+
+.register__error {
+    width: 100%;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.2;
+    display: none;
+    box-sizing: border-box;
+    margin-top: -20px;
+    color: #EE3465;
+    min-height: 20px;
+}
+
+.register__error_visible {
+    display: block;
+}
+
+.register__submit-button {
+    width: 100%;
+    height: 45px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.2;
+    border: 0;
+    border-radius: 3px;
+    color: #FFF;
+    background-color: #2BE080;
+    cursor: pointer;
+    transition: all .3s ease;
+    margin: 0 0 16px 0;
+}
+
+.register__submit-button_disabled {
+    color: #FFF;
+    background-color: #424242;
+    cursor: inherit ;
+    opacity: .7;
+}
+
+.register__submit-button:hover {
+    opacity: .7;
+}
+
+.register__signin {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.register__signin-text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0;
+    color: #A0A0A0;
+}
+
+.register__signin-link {
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 400;
+    color: #2BE080;
+    cursor: pointer;
+    transition: all .3s ease;
+    text-decoration: none;
+}
+
+.register__signin-link:hover {
+    opacity: .7;
+}
+
+@media (max-width: 768px) {
+    .register {
+        margin: 232px auto;
+    }
+    
+    .register__form {
+        margin: 0 0 134px 0;
+    }
+}
+
+@media (max-width: 425px) {
+    .register {
+        width: 81.25%;
+        align-items: center;
+        margin: 56px auto 30px;
+    }
+    
+    .register__logo {
+        margin: 0 0 50px 0;
+    }
+    
+    .register__header {
+        text-align: center;
+        margin:0 0 80px 0;
+    }
+    
+    .register__form {
+        margin: 0 0 251px 0;
+    }
+    
+    .register__submit-button {
+        font-size: 12px;      
+        margin: 0 0 14px 0;
+    }
+
+    
+    .register__signin {
+        gap: 7px;
+    }
+    
+    .register__signin-text {
+        font-size: 12px;
+    }
+    
+    .register__signin-link {
+        font-size: 12px;
+    }
+}

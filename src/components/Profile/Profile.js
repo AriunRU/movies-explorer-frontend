@@ -1,128 +1,46 @@
-import { BlockPage } from '../BlockPage/BlockPage';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import { useEffect, useContext } from "react";
-import { useFormHandler } from '../../utils/useFormHandler';
-import { REGEX_EMAIL, ERR_MESSAGE_EMAIL } from '../../utils/constants';
+import React, { useState } from 'react'
+import { UseFormValidation } from '../../hooks/UseFormValidation';
+import { CurrentUserContext } from '../../context/CurrentUserContext';
+import { InfoMessage } from '../InfoMessage/InfoMessage';
 
-function Profile({ loggedIn, location, signOut, onUpdateUser, handleNavClick, inputsActive, setInputsActive }) {
-  const { handleChange, inputValues, inputErrors, setInputValues, setInputErrors } = useFormHandler();
-  const currentUser = useContext(CurrentUserContext);
+export function Profile(props) {
+    const { values, errors, isValid, handleChange } = UseFormValidation({});
+    const [isEditMode, setIsEditMode] = useState(false);
+    const currentUser = React.useContext(CurrentUserContext);
+    function handleEditMode() {
+        setIsEditMode(!isEditMode);
+        values.name = currentUser.name;
+        values.email = currentUser.email;
+    }
 
-  useEffect(() => {
-    setInputValues({
-      ...inputValues,
-      name: currentUser.name,
-      email: currentUser.email,
-    });
-  }, [currentUser]);
-
-  function handleSubmit(evt) {
-    evt.preventDefault();
-    onUpdateUser({
-      name: inputValues.name,
-      email: inputValues.email,
-    });
-  }
-
-  function handleStartEdit() {
-    setInputsActive(true);
-  }
-
-  function handleCancelEdit() {
-    setInputsActive(false);
-    setInputValues({
-      ...inputValues,
-      name: currentUser.name,
-      email: currentUser.email,
-    })
-    setInputErrors({
-      ...inputErrors,
-      name: '',
-      email: ''
-    })
-  }
-
-  const buttonInactive =
-  inputErrors.email || inputErrors.name ||
-  (currentUser.email === inputValues.email && currentUser.name === inputValues.name);
-
-  return (
-    <BlockPage loggedIn={loggedIn} location={location} handleNavClick={handleNavClick}>
-      <section className='profile'>
-        <h2 className='profile__title'>{`Привет, ${currentUser.name}!`}</h2>
-        <form
-          className='profile__form'
-          id='profile-form'
-        >
-          <div className='profile__input-block profile__input-block_name'>
-            <p className='profile__text'>Имя</p>
-            <input
-              readOnly={!inputsActive}
-              className='profile__input profile__input_name'
-              id='profile-name'
-              name='name'
-              placeholder='Виталий'
-              onChange={handleChange}
-              value={inputValues.name || ''}
-              minLength='2'
-              maxLength='30'
-              required
-            />
-            <span className='profile__input-block_error'>
-              {inputErrors.name}
-            </span>
-          </div>
-          <div className='profile__input-block'>
-            <p className='profile__text'>E-mail</p>
-            <input
-              readOnly={!inputsActive}
-              className='profile__input profile__input_email'
-              id='profile-email'
-              type='email' name='email'
-              placeholder='pochta@yandex.ru'
-              onChange={handleChange}
-              value={inputValues.email || ''}
-              pattern={REGEX_EMAIL}
-              minLength='2'
-              maxLength='50'
-              required
-            />
-            <span className='profile__input-block_error'>
-              {inputErrors?.email && ERR_MESSAGE_EMAIL}
-            </span>
-          </div>
-        </form>
-        <div className='profile__button-block'>
-          <button
-            className={`profile__button ${!inputsActive && 'profile__button_active'}`}
-            type='button'
-            onClick={handleStartEdit}
-          >Редактировать
-          </button>
-          <button
-            className={`profile__button ${!inputsActive && 'profile__button_active'}`}
-            type='button'
-            onClick={signOut}
-          >Выйти из аккаунта
-          </button>
-          <button
-            className={`profile__button ${inputsActive && 'profile__button_active'} ${buttonInactive && "profile__button_disabled"}`}
-            form='profile-form'
-            type='submit'
-            disabled={buttonInactive}
-            onClick={handleSubmit}
-          >Сохранить
-          </button>
-          <button
-            className={`profile__button ${inputsActive && 'profile__button_active'}`}
-            type='button'
-            onClick={handleCancelEdit}
-          >Отмена
-          </button>
-        </div>
-      </section>
-    </BlockPage>
-  )
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setIsEditMode(!isEditMode);
+        props.handleChangeProfile(values.name, values.email);
+    }
+    return (
+        <section className='profile'>
+            <h2 className='profile__greetings'>Привет, {currentUser.name}!</h2>
+            <form name='profile__form' className='profile__form form'>
+                <label className='profile__input-box'>
+                    <span className='profile__input-name'>Имя</span>
+                    <input value={values.name || ''} onChange={handleChange} disabled={!isEditMode} name='name' id='name' className={errors.name ? 'profile__input profile__input_error' : 'profile__input'} type='text' placeholder={currentUser.name} minLength={2} maxLength={30} pattern="^(?!\s)[A-Za-zА-Яа-я\-\s]+$" required/>
+                    <span className={errors.name ? "profile__error profile__error_visible" : "profile__error"}>{errors.name}</span>
+                </label>
+                <label className='profile__input-box'>
+                    <span className='profile__input-name'>E-mail</span>
+                    <input value={values.email || ''} onChange={handleChange} disabled={!isEditMode} name='email' id='email' className={errors.name ? 'profile__input profile__input_error' : 'profile__input'} type='email' placeholder={currentUser.email} minLength={2} maxLength={30} pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$" required/>
+                    <span className={errors.email ? "profile__error profile__error_visible" : "profile__error"}>{errors.email}</span>
+                </label>
+            </form>
+            <div className='profile__options'>
+            <InfoMessage isInfoMessageOpen={props.isInfoMessageOpen} closeInfoMessage={props.closeInfoMessage} textIfnoMessage={props.textIfnoMessage}/>
+                {isEditMode
+                    ? <button disabled={!isValid && (values.name === currentUser.name || values.email === currentUser.email) && props.isLoading} onClick={handleSubmit} type='submit' form='profile__form' className={isValid && (values.name !== currentUser.name || values.email !== currentUser.email) ?'profile__submit-button' : 'profile__submit-button profile__submit-button_disabled'}>Сохранить</button>
+                    : <button onClick={handleEditMode} type='button' className='profile__submit-button'>Редактировать</button>
+                }
+                <button onClick={props.handleExit} type='button' className='profile__exit-button'>Выйти из аккаунта</button>
+            </div>
+        </section >
+    )
 }
-
-export default Profile;

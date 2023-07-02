@@ -1,6 +1,5 @@
 .promo {
-  margin: 20px 40px 0;
-  background: #F5F5F5;
+  background: #f5f5f5;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -21,7 +20,7 @@
   color: #000;
 }
 
-.navtab__menu {
+.promo__menu {
   margin: 0;
   padding: 0;
   margin-bottom: 30px;
@@ -30,7 +29,7 @@
   list-style-type: none;
 }
 
-.navtab__link {
+.promo__link {
   margin: 0;
   padding: 0;
   display: flex;
@@ -43,14 +42,11 @@
   font-size: 12px;
   line-height: 16px;
   color: #000;
-  background: #E8E8E8;
+  background: #e8e8e8;
   border-radius: 10px;
 }
 
 @media screen and (max-width: 880px) {
-  .promo {
-    margin: 20px 20px 0;
-  }
   .promo__title {
     margin: 350px 24px 380px;
     font-size: 40px;
@@ -59,20 +55,17 @@
 }
 
 @media screen and (max-width: 580px) {
-  .promo {
-    margin: 14px 14px 0;
-  }
   .promo__title {
     margin: 220px 14px 255px;
     font-size: 29px;
     line-height: 37px;
   }
 
-  .navtab__menu {
+  .promo__menu {
     margin-bottom: 17px;
     gap: 6px;
   }
-  .navtab__link {
+  .promo__link {
     width: 82px;
     height: 26px;
     font-size: 10px;

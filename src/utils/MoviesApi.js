@@ -1,13 +1,15 @@
-import { URL_MOVIES } from './constants';
-
-function getResponseData(res) {
-  if (!res.ok) {
-    Promise.reject(`Ошибка: ${res.status}/${res.statusText}`);
-  }
-  return res.json();
+function handleResponse(res) {
+    if (res.ok) {
+        return res.json();
+    }
+    return Promise.reject(new Error("Что-то пошло не так."))
 }
 
-export function getAllMovies() {
-  return fetch(URL_MOVIES)
-    .then((res) => getResponseData(res))
+export const getMovies = () => {
+    return fetch('https://api.nomoreparties.co/beatfilm-movies', {
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+    .then(handleResponse)
 }

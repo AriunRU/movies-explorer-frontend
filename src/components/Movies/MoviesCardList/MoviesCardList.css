@@ -1,0 +1,36 @@
+.movies {
+    width: 100%;
+    margin: 70px 0 80px;
+}
+
+.movies__list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 28px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+@media (max-width: 1023px) {
+    .movies {
+        margin: 70px 0 80px;
+    }
+    
+    .movies__list {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px 24px;
+    }
+}
+
+@media (max-width: 568px) {
+    .movies {
+        margin: 40px 0 50px;
+    }
+    
+    .movies__list {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}

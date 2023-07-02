@@ -1,0 +1,137 @@
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .3);
+    visibility: hidden;
+    opacity: 0;
+    transition: all .3s ease;
+    z-index: 2;
+}
+
+.menu-overlay_visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 520px;
+    height: 100vh;
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all .3s ease;
+}
+
+.menu_visible {
+    transform: translateX(0);
+}
+
+.menu_hidden {
+    transform: translateX(100%);
+}
+
+.menu__links {
+    display: flex;
+    flex-direction: column;
+    width: 340px;
+    margin: 159px 90px 721px;
+    gap: 28px;
+}
+
+.menu__link {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    transition: all .3s ease;
+}
+
+.menu__link:hover {
+    opacity: .7;
+}
+
+.menu__link_active {
+    border-bottom: solid 2px #000;
+}
+
+.menu__profile {
+    width: 100px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 21px 0 23px;
+    background-color: #F9F9F9;
+    border-radius: 20px;
+}
+
+.menu__profile-link {
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 500;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.menu__iconbox {
+    width: 26px;
+    height: 30px;
+    border-radius: 4px;
+    background-color: #313131;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu__close-button {
+    background-image: url('../../../images/cross.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    min-width: 22px;
+    min-height: 22px;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    cursor: pointer;
+    transition: all .3s ease;
+    padding: 0;
+}
+
+.menu__close-button:hover {
+    opacity: .7;
+}
+
+@media (max-width: 524px) {
+    .menu__close-button {
+        top: 13px;
+        right: 13px;
+    }
+
+    .menu {
+        width: 100vw;
+    }
+
+    .menu__links {
+        width: 300px;
+        margin: 144px 10px 444px;
+        gap: 24px;
+    }
+
+    .menu__profile {
+        margin: 0 110px 48px;
+    }
+  }

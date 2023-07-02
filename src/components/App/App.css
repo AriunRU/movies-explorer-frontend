@@ -1,18 +1,11 @@
-.page {
-  font-family: 'Inter', Arial, sans-serif;
-  font-style: normal;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  text-rendering: optimizeLegibility;
-  min-width: 320px;
-  max-width: 1280px;
-  margin: 0 auto 0;
-}
-
-.wrapper {
-  margin: 0 auto;
-  height: 100%;
-  width: 100%;
-  max-width: 1140px;
+.App {
+  font-family: 'Inter', sans-serif, Arial;
+    color: #000;
+    font-weight: 400;
+    min-width: 320px;
+    max-width: 1280px;
+    background-color: #fff;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }

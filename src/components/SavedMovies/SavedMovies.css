@@ -1,15 +1,32 @@
-.saved-movies {
-  padding: 0 70px;
+.saved-content {
+    width: calc(100% - 140px);
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
 }
 
-@media screen and (max-width: 880px) {
-  .saved-movies {
-    padding: 0 30px;
-  }
+.saved-content__line {
+    border-bottom: solid 1px #E8E8E8;
+    transform: translateY(-10px);
+    margin-top: 20px;
 }
 
-@media screen and (max-width: 580px) {
-  .saved-movies {
-    padding: 0 10px;
-  }
+.saved-content__error {
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 500;
+    color: #EE3465;
+    text-align: center;
+}
+
+@media (max-width: 1023px) {
+    .saved-content {
+        width: calc(100% - 60px);
+    }
+}
+
+@media (max-width: 512px) {
+    .saved-content {
+        width: calc(100% - 20px);
+    }
 }

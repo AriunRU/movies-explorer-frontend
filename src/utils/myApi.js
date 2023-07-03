@@ -1,4 +1,5 @@
 import { BASE_URL } from '../constants/constants';
+import { URL_API_MOVIES } from '../constants/constants';
 
 function handleResponse(res) {
     if (res.ok) {
@@ -82,9 +83,9 @@ export const saveMovie = (movie) => {
             duration: movie.duration,
             year: movie.year,
             description: movie.description,
-            image: `https://api.nomoreparties.co/${movie.image.url}`,
+            image: `${URL_API_MOVIES}/${movie.image.url}`,
             trailerLink: movie.trailerLink,
-            thumbnail: `https://api.nomoreparties.co/${movie.thumbnail}`,
+            thumbnail: `${URL_API_MOVIES}/${movie.thumbnail}`,
             movieId: movie.movieId,
             nameRU: movie.nameRU,
             nameEN: movie.nameEN,

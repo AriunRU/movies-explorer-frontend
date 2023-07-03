@@ -39,13 +39,15 @@ export function Card(props) {
                 </div>
                 <button
                     onClick={props.isSavedMoviesPage ? handleDeleteMovie : isSaved ? handleDeleteMovie : handleSaveMovie}
-                    className={`movies__save-button ${props.isSavedMoviesPage ? 'movies__save-button_type_delete' : isSaved && 'movies__save-button_type_saved'}`}
+                    className={`movies__save-button ${props.isSavedMoviesPage
+                        ? 'movies__save-button_type_delete' : isSaved && 'movies__save-button_type_saved'}`}
                     type="button"
                     aria-label="Добавить в сохранённые фильмы или удалить из сохранённых фильмов">
                 </button>
             </div>
             <a className='movies__link' href={props.card.trailerLink} target="blank" title='Ссылка на трейлер фильма'>
-                <img className="movies__image" src={props.isSavedMoviesPage ? `${props.card.image}` : `${URL_API_MOVIES}${props.card.image.url}`} alt={props.card.nameRU} />
+                <img className="movies__image" src={props.isSavedMoviesPage ? `${props.card.image}`
+                    : `${URL_API_MOVIES}${props.card.image.url}`} alt={props.card.nameRU} />
             </a>
 
         </li>

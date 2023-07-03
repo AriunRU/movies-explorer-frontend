@@ -7,5 +7,5 @@ export const MAX_ADD_MOVIES = 3;
 export const MIN_ADD_MOVIES = 2;
 export const URL_API_MOVIES = 'https://api.nomoreparties.co/'
 export const BASE_URL_MOVIES = 'https://api.nomoreparties.co/beatfilm-movies'
-//export const BASE_URL = 'https://api.ariun-movies.nomoredomains.rocks';
-export const BASE_URL = 'http://localhost:3000';
+export const BASE_URL = 'https://api.ariun-movies.nomoredomains.rocks';
+//export const BASE_URL = 'http://localhost:3000';

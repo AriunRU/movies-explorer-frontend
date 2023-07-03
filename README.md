@@ -1,5 +1,5 @@
 # movies-explorer-frontend
-diplom on YA-Praktikum Frontend created 
+diplom on YA-Praktikum Frontend created 50/50% -__-
 
 [Ссылка на фронт](https://ariun-movies.nomoredomains.rocks)
 

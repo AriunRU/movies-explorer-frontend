@@ -47,16 +47,16 @@ export function Movies(props) {
     }, [])
 
     useEffect(() => {
-        if(!errorMessage) {
+        if (!errorMessage) {
             setIsReadyMovie(true);
             isShorts
-            ? setShownMovies(shortFiltredMovies.slice(0, moviesCount))
-            : setShownMovies(filtredMovies.slice(0, moviesCount))
+                ? setShownMovies(shortFiltredMovies.slice(0, moviesCount))
+                : setShownMovies(filtredMovies.slice(0, moviesCount))
         }
     }, [isShorts, moviesCount, errorMessage])
 
     useEffect(() => {
-        if(allData) {
+        if (allData) {
             const updateAllData = JSON.parse(allData);
             updateAllData.isShorts = isShorts;
             localStorage.setItem('allData', JSON.stringify(updateAllData))
@@ -77,7 +77,7 @@ export function Movies(props) {
     async function handleGetMovies(film, isShorts) {
         if (!film || film === ' ') {
             props.setIsInfoMessageOpen(true);
-            props.setTextInfoMessage("Введите параметры поиска")
+            props.setTextInfoMessage("Введите данные для поиска")
         } else {
             try {
                 setIsLoading(true);
@@ -117,7 +117,7 @@ export function Movies(props) {
             } catch (err) {
                 setShownMovies([]);
                 setIsReadyMovie(false);
-                setErrorMessage('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз')
+                setErrorMessage('Во время запроса произошла ошибка.')
                 setIsLoading(false);
             }
         }
@@ -129,33 +129,37 @@ export function Movies(props) {
 
     function saveMovie(movie, saveSetter) {
         myApi.saveMovie(movie)
-        .then((res) => {
-            props.setSavedMovies([...props.savedMovies, res]);
-            saveSetter(true);
-        })
-        .catch((err) => console.log(err))
+            .then((res) => {
+                props.setSavedMovies([...props.savedMovies, res]);
+                saveSetter(true);
+            })
+            .catch((err) => console.log(err))
     }
 
     function handleDeleteMovie(movieId, saveSetter) {
         const currentMovie = props.savedMovies.find((movie) => movie.movieId === movieId);
         myApi.deleteMovie(currentMovie._id)
-        .then(() => {
-            saveSetter(false);
-            props.setSavedMovies((state) => state.filter((movie) => movie._id !== currentMovie._id));
-        })
-        .catch((err) => console.log(err))
+            .then(() => {
+                saveSetter(false);
+                props.setSavedMovies((state) => state.filter((movie) => movie._id !== currentMovie._id));
+            })
+            .catch((err) => console.log(err))
     }
 
     return (
         <section className="film-content">
-            <SearchForm isLoading={isLoading} isShorts={isShorts} setShorts={setShorts} lastSearchFilm={lastSearchFilm} handleGetMovies={handleGetMovies} isInfoMessageOpen={props.isInfoMessageOpen} closeInfoMessage={props.closeInfoMessage} textIfnoMessage={props.textIfnoMessage} />
+            <SearchForm isLoading={isLoading} isShorts={isShorts} setShorts={setShorts} lastSearchFilm={lastSearchFilm}
+                handleGetMovies={handleGetMovies} isInfoMessageOpen={props.isInfoMessageOpen}
+                closeInfoMessage={props.closeInfoMessage} textIfnoMessage={props.textIfnoMessage} />
             <div className='film-content__line' />
             {isLoading
                 ? <Preloader />
                 : isReadyMovie
                     ? <>
                         <MoviesCardList deleteMovie={handleDeleteMovie} savedMovies={props.savedMovies} saveMovie={saveMovie} moviesList={shownMovies} isSavedMoviesPage={false} />
-                        <button onClick={moreContent} type='button' className={`film-content__more ${isShorts ? moviesCount >= shortFiltredMovies.length && 'film-content__more_none-display' : moviesCount >= filtredMovies.length &&  'film-content__more_none-display'}`}>Ещё</button>
+                        <button onClick={moreContent} type='button' className={`film-content__more ${isShorts
+                            ? moviesCount >= shortFiltredMovies.length && 'film-content__more_none-display'
+                            : moviesCount >= filtredMovies.length && 'film-content__more_none-display'}`}>Ещё</button>
                     </>
                     : <>
                         <h2 className='film-content__error'>{errorMessage}</h2>

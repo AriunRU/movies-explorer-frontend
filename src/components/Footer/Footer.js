@@ -8,8 +8,8 @@ export function Footer() {
                 <div className="footer__sourse-container">
                     <p className="footer__author">&copy;&nbsp;2023 Kirill Golovin</p>
                     <div className="footer__links">
-                        <a className="footer__link" href="https://practicum.yandex.ru/" target="blank" title='Ссылка на официальную страничку Яндекс.Практикума'>Яндекс.Практикум</a>
-                        <a className="footer__link" href="https://github.com/Rock-unicorn?tab=repositories" target="blank" title='Ссылка на мой Github'>Github</a>
+                        <a className="footer__link" href="https://practicum.yandex.ru/" target="blank" title='Ссылка на Яндекс.Практикум'>Яндекс.Практикум</a>
+                        <a className="footer__link" href="https://github.com/AriunRU?tab=repositories" target="blank" title='Ссылка на Github'>Github</a>
                     </div>
                 </div>
             </div>

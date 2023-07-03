@@ -18,9 +18,13 @@ export function Header(props) {
                     {props.loggedIn
                         ? <>
                             <NavLink className={({ isActive, isPending }) =>
-                                isPending ? "header__link" : isActive ? "header__link header__link_active" : "header__link"} to='/movies'>Фильмы</NavLink>
+                                isPending ? "header__link" : isActive
+                                    ? "header__link header__link_active" : "header__link"}
+                                to='/movies'>Фильмы</NavLink>
                             <NavLink className={({ isActive, isPending }) =>
-                                isPending ? "header__link" : isActive ? "header__link header__link_active" : "header__link"} to='/saved-movies'>Сохранённые фильмы</NavLink>
+                                isPending ? "header__link" : isActive
+                                    ? "header__link header__link_active" : "header__link"}
+                                to='/saved-movies'>Сохранённые фильмы</NavLink>
                         </>
                         : null
                     }
@@ -29,7 +33,9 @@ export function Header(props) {
             {props.loggedIn
                 ? <div className='header__profile'>
                     <NavLink className={({ isActive, isPending }) =>
-                        isPending ? "header__link" : isActive ? "header__link header__link_active" : "header__link"} to='/profile'>Аккаунт</NavLink>
+                        isPending ? "header__link" : isActive
+                            ? "header__link header__link_active" : "header__link"}
+                        to='/profile'>Аккаунт</NavLink>
                 </div>
                 : <div className='header__auth'>
                     <NavLink className='header__link' to='/sign-up'>Регистрация</NavLink>

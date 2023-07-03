@@ -1,4 +1,4 @@
-import magGlass from '../../../images/magnifying-glass.svg';
+import serchGlass from '../../../images/search-glass.svg';
 import { useEffect } from 'react';
 import { FilterCheckbox } from '../FilterCheckbox/FilterCheckbox';
 import { UseFormValidation } from '../../../hooks/UseFormValidation';
@@ -26,7 +26,7 @@ export function SearchForm(props) {
     return (
         <>
         <section className="searcher">
-            <img className='searcher__glass' src={magGlass} alt='Иконка поисковой лупы' />
+            <img className='searcher__glass' src={serchGlass} alt='Иконка увел стекла' />
             <form className='searcher__form form'>
                 <input value={values.film || ''} onChange={handleChange} className='searcher__input' type="text" placeholder="Фильм" name="film" id="film" minLength={1} required/>
                 <button disabled={props.isLoading} onClick={handleSubmit} className={'searcher__button'} type="submit" />

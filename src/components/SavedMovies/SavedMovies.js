@@ -18,7 +18,7 @@ export function SavedMovies(props) {
     function handleGetMovies(film, isShorts) {
         if (!film || film === ' ') {
             props.setIsInfoMessageOpen(true);
-            props.setTextInfoMessage("Введите параметры поиска")
+            props.setTextInfoMessage("Введите данные для поиска")
         } else {
             const filtredMovies = filterMoviesByName(props.savedMovies, film);
             const shortsFiltredMovies = filterMoviesByDuration(filtredMovies);
@@ -52,7 +52,8 @@ export function SavedMovies(props) {
     }
     return (
         <section className="saved-content">
-            <SearchForm isShorts={isShorts} setShorts={setShorts} handleGetMovies={handleGetMovies} isInfoMessageOpen={props.isInfoMessageOpen} closeInfoMessage={props.closeInfoMessage} textIfnoMessage={props.textIfnoMessage} />
+            <SearchForm isShorts={isShorts} setShorts={setShorts} handleGetMovies={handleGetMovies}
+                isInfoMessageOpen={props.isInfoMessageOpen} closeInfoMessage={props.closeInfoMessage} textIfnoMessage={props.textIfnoMessage} />
             <div className='saved-content__line' />
             {isReady
                 ? <>
